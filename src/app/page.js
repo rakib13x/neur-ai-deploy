@@ -1,5 +1,6 @@
 import { Github, FileText } from "lucide-react";
 import ParticlesBackground from "./ParticlesBackground";
+import { GettingStartWallet, LoginButtonWallet } from "./Button";
 
 export default function Home() {
 	return (
@@ -50,9 +51,9 @@ export default function Home() {
 											<span className="absolute inset-x-4 -bottom-px h-px scale-x-0 bg-gradient-to-r from-[#171717]/0 via-[#171717]/70 to-[#171717]/0 transition-transform duration-300 group-hover:scale-x-100"></span>
 										</a>
 										<a
-											href=""
+											href="https://docs.privy.io/"
 											target="_blank"
-											rel="noopener noreferrer"
+											rel="noreferrer"
 											className="group relative flex items-center gap-1.5 px-4 py-1.5 text-sm font-medium text-muted_foreground transition-colors hover:text-background"
 										>
 											<svg
@@ -74,9 +75,7 @@ export default function Home() {
 											<span className="absolute inset-x-4 -bottom-px h-px scale-x-0 bg-gradient-to-r from-[#171717]/0 via-[#171717]/70 to-[#171717]/0 transition-transform duration-300 group-hover:scale-x-100"></span>
 										</a>
 
-										<button className="bg-white inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border shadow-sm py-2 h-9 rounded-lg px-4 text-sm transition-colors hover:bg-[#171717] hover:text-[#fafafa]">
-											Login
-										</button>
+										<LoginButtonWallet>Login</LoginButtonWallet>
 									</div>
 									<div className="flex md:hidden justify-end items-center">
 										<button className="bg-white inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border shadow-sm py-2 h-9 rounded-lg px-4 text-sm transition-colors hover:bg-[#171717] hover:text-[#fafafa]">
@@ -140,9 +139,8 @@ export default function Home() {
 							</p>
 
 							{/* CTA Button */}
-							<button className="px-8 py-3 bg-white text-black rounded-xl text-base transition-all duration-300 hover:scale-105">
-								Getting Started
-							</button>
+							<GettingStartWallet>Getting Started</GettingStartWallet>
+
 							{/* App Preview */}
 
 							<div className="group relative overflow-hidden rounded-2xl border bg-card shadow-2xl mt-16">

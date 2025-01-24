@@ -3,50 +3,87 @@
 @tailwind utilities;
 
 :root {
-  --gap: 16px;
-  --duration: 15s;
+	--gap: 16px;
+	--duration: 15s;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+	0%,
+	100% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
 }
 
 @layer utilities {
+	.animate-float {
+		animation: float 3s ease-in-out infinite;
+	}
 
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
-  }
+	.animate-blob {
+		animation: blob 8s infinite;
+	}
+	.animate-marquee {
+		animation: marquee var(--duration) infinite linear;
+	}
 
-  .animate-blob {
-    animation: blob 8s infinite;
-  }
-  .animate-marquee {
-    animation: marquee var(--duration) infinite linear;
-  }
+	@keyframes marquee {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(calc(-100% - var(--gap)));
+		}
+	}
+	@keyframes blob {
+		0% {
+			transform: translate(0) scale(1);
+		}
 
-  @keyframes marquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-100% - var(--gap)));
-    }
-  }
-  @keyframes blob {
-    0% {
-      transform: translate(0) scale(1);
-  }
-  
-  33% {
-      transform: translate(50px, -50px) scale(1.3);
-  }
-  66% {
-      transform: translate(-30px, 30px) scale(.85);
-  }
-  100% {
-      transform: translate(0) scale(1);
-  }
-  }
-  
+		33% {
+			transform: translate(50px, -50px) scale(1.3);
+		}
+		66% {
+			transform: translate(-30px, 30px) scale(0.85);
+		}
+		100% {
+			transform: translate(0) scale(1);
+		}
+	}
+}
+
+#wallet-connect--login-button {
+	background-color: white;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem; /* Space between items */
+	white-space: nowrap; /* Prevent text wrapping */
+	font-weight: 500; /* Medium font weight */
+	outline: none; /* Remove default outline */
+	border: 1px solid #d1d5db; /* Border with a light gray color */
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+	padding: 0.5rem 1rem; /* Padding: 0.5rem (top/bottom) and 1rem (left/right) */
+	height: 2.25rem; /* Fixed height */
+	border-radius: 0.5rem; /* Rounded corners */
+	font-size: 0.875rem; /* Text size: 14px */
+	transition: background-color 0.2s, color 0.2s; /* Smooth color changes */
+	cursor: pointer; /* Pointer cursor on hover */
+}
+
+#wallet-connect--login-button:hover {
+	background-color: #171717 !important; /* Black background on hover */
+	color: #fafafa; /* White text on hover */
+}
+
+#wallet-connect--login-button:focus-visible {
+	outline: 2px solid transparent; /* Custom focus outline */
+	box-shadow: 0 0 0 2px #d1d5db; /* Focus ring */
+}
+
+#wallet-connect--login-button:disabled {
+	pointer-events: none; /* Disable pointer events */
+	opacity: 0.5; /* Reduced opacity */
 }
