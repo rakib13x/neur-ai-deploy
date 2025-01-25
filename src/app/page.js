@@ -1,7 +1,6 @@
 "use client";
 import { Github, FileText } from "lucide-react";
 import ParticlesBackground from "./ParticlesBackground";
-import { GettingStartWallet, LoginButtonWallet } from "./Button";
 import { usePrivy } from "@privy-io/react-auth";
 
 export default function Home() {
