@@ -1,13 +1,17 @@
+"use client";
 import { Github, FileText } from "lucide-react";
 import ParticlesBackground from "./ParticlesBackground";
 import { GettingStartWallet, LoginButtonWallet } from "./Button";
+import { usePrivy } from "@privy-io/react-auth";
 
 export default function Home() {
+	const { login } = usePrivy();
 	return (
 		<>
 			<div className="absolute -z-0">
 				<ParticlesBackground />
 			</div>
+
 			<div className="min-h-screen bg-white text-[#0a0a0a] z-90">
 				{/* Navigation */}
 				<nav className="relative w-full top-0 left-0 z-50">
@@ -74,11 +78,19 @@ export default function Home() {
 											Docs
 											<span className="absolute inset-x-4 -bottom-px h-px scale-x-0 bg-gradient-to-r from-[#171717]/0 via-[#171717]/70 to-[#171717]/0 transition-transform duration-300 group-hover:scale-x-100"></span>
 										</a>
-
-										<LoginButtonWallet>Login</LoginButtonWallet>
+										<button
+											onClick={() => login({ loginMethods: ["email", "sms"] })}
+											className="bg-white inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border shadow-sm py-2 h-9 rounded-lg px-4 text-sm transition-colors hover:bg-[#171717] hover:text-[#fafafa]"
+										>
+											Login
+										</button>
+										{/* <LoginButtonWallet>Login</LoginButtonWallet> */}
 									</div>
 									<div className="flex md:hidden justify-end items-center">
-										<button className="bg-white inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border shadow-sm py-2 h-9 rounded-lg px-4 text-sm transition-colors hover:bg-[#171717] hover:text-[#fafafa]">
+										<button
+											onClick={() => login({ loginMethods: ["email", "sms"] })}
+											className="bg-white inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border shadow-sm py-2 h-9 rounded-lg px-4 text-sm transition-colors hover:bg-[#171717] hover:text-[#fafafa]"
+										>
 											Login
 										</button>
 										<button className="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground h-9 w-9 md:hidden">
@@ -139,14 +151,19 @@ export default function Home() {
 							</p>
 
 							{/* CTA Button */}
-							<GettingStartWallet>Getting Started</GettingStartWallet>
+							<button
+								onClick={() => login({ loginMethods: ["email", "sms"] })}
+								className="px-8 py-3 bg-white text-black rounded-xl text-base transition-all duration-300 hover:scale-105"
+							>
+								Getting Started
+							</button>
 
 							{/* App Preview */}
 
 							<div className="group relative overflow-hidden rounded-2xl border bg-card shadow-2xl mt-16">
 								<div className="relative mx-auto w-full max-w-[1200px] will-change-transform">
 									<img
-										src="/product_dark.webp"
+										src="/product.png"
 										alt="product Preview"
 										className="w-full rounded-lg"
 									/>
